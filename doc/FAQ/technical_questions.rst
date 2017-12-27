@@ -45,3 +45,22 @@ Technical Questions
   11. Does CDRs report will show all data ?
        No, CDRs report will only record of current day. If you want to see record of previous days record then you need 
        to search.
+       
+       
+  12. How to connect freeswitch fs_cli console from linux server ?
+      #fs_cli or fs_cli -p123456 (if you have set even_socket password)
+
+
+  13. How to change event socket password in freeswitch ?
+        Open below file and replace your password with “ClueCon”.
+        File path : /usr/local/freeswitch/conf/autoload_configs/event_socket.conf.xml
+        Go to fs_cli console and reload it. freeswitch> reload mod_event_socket
+        
+  14. If we are getting origination rates not found error in fs_cli console then what to do ?
+      [WARNING] mod_dptools.c:1724 Accountcode 2457848300. Dialed number (3318555801802)  origination rates not found!!
+        Add origination rate for prefix 33 and select rategroup which assigned to customer.
+        
+  15.If we are getting origination rates not found error in fs_cli console then what to do ?
+     [WARNING] mod_dptools.c:1724 Accountcode 2457848300. Dialed number (3318555801802) termination rates not found!!
+       Add termination rate for prefix 33 and select trunk which selected in rate group
+       Or select approprie trunk in rategroup which assigned to customer.
